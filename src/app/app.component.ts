@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = '2q2';
+      // Question 2
+
+      searchText = "";
+      items = [];
+
+      ngOnInit() {
+        const url = 'https://api.publicapis.org/categories';
+        // obtengo datos utilizando fetch
+        fetch(url).then(response => response.json()).then(data => {
+          this.items = data.categories; // <-- asigno los valores a la propiedad del componente
+        });
+      }
 }
